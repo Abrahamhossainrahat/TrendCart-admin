@@ -616,12 +616,12 @@ class _SellerAllProductScreenState extends State<SellerAllProductScreen> {
       ),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: AppColor().colorRed,
+         // canvasColor: AppColor().colorRed,
           primaryColor: Colors.red,
           textTheme: Theme.of(context).textTheme.copyWith(bodySmall: TextStyle(color: Colors.yellow))),
         child: BottomNavigationBar(
           currentIndex: 1, // Set the current index to 'Products'
-          selectedItemColor: Colors.red,
+          selectedItemColor: AppColor().colorGreen,
           unselectedItemColor: Colors.grey,
           items: const [
             BottomNavigationBarItem(

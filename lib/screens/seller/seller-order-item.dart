@@ -81,7 +81,7 @@ class SellerOrderItem extends StatelessWidget {
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
         // sets the background color of the `BottomNavigationBar`
-        canvasColor: AppColor().colorRed,
+       // canvasColor: AppColor().colorRed,
         // sets the active color of the `BottomNavigationBar` if `Brightness` is light
         primaryColor: Colors.red,
         textTheme: Theme
@@ -90,7 +90,7 @@ class SellerOrderItem extends StatelessWidget {
             .copyWith(bodySmall: TextStyle(color: Colors.yellow))),
         child: BottomNavigationBar(
             currentIndex: 0,
-            selectedItemColor: Colors.red,
+            selectedItemColor: AppColor().colorGreen,
             unselectedItemColor: Colors.grey,
             items: const [
               BottomNavigationBarItem(

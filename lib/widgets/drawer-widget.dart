@@ -85,10 +85,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                       ),
                       leading: CircleAvatar(
                         radius: 22.0,
-                        backgroundColor: AppColor().colorRed,
+                        backgroundColor: AppColor().colorWhite,
                         child: Text(
                           firstLetter,
-                          style: TextStyle(color: AppConstant.colorWhite),
+                          style: TextStyle(color: AppConstant.colorRed),
                         ),
                       ),
                     ),

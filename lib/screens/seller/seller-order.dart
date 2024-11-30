@@ -24,17 +24,25 @@ class SellerAllOrderScreen extends StatefulWidget {
 class _SellerAllOrderScreenState extends State<SellerAllOrderScreen> {
   late Future<QuerySnapshot> _ordersFuture;
   String _selectedStatus = 'All';
-  final List<String> _statusOptions = ['All', 'accepted', 'declined', 'in progress'];
+  final List<String> _statusOptions = [
+    'All',
+    'accepted',
+    'declined',
+    'in progress'
+  ];
 
   @override
   void initState() {
     super.initState();
-    _ordersFuture = _fetchOrders(sellerId: FirebaseAuth.instance.currentUser?.email);
+    _ordersFuture =
+        _fetchOrders(sellerId: FirebaseAuth.instance.currentUser?.email);
   }
 
-  Future<QuerySnapshot> _fetchOrders({String status = 'All', String? sellerId}) async {
+  Future<QuerySnapshot> _fetchOrders(
+      {String status = 'All', String? sellerId}) async {
     try {
-      CollectionReference ordersRef = FirebaseFirestore.instance.collection('orders');
+      CollectionReference ordersRef =
+          FirebaseFirestore.instance.collection('orders');
 
       // Build the query
       Query query = ordersRef.orderBy('createdAt', descending: true);
@@ -66,7 +74,9 @@ class _SellerAllOrderScreenState extends State<SellerAllOrderScreen> {
 
   void _onSearch() {
     setState(() {
-      _ordersFuture = _fetchOrders(status: _selectedStatus, sellerId: FirebaseAuth.instance.currentUser?.email);
+      _ordersFuture = _fetchOrders(
+          status: _selectedStatus,
+          sellerId: FirebaseAuth.instance.currentUser?.email);
     });
   }
 
@@ -77,7 +87,8 @@ class _SellerAllOrderScreenState extends State<SellerAllOrderScreen> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>SellerHomeScreen()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SellerHomeScreen()));
           },
         ),
         title: Text(
@@ -87,7 +98,10 @@ class _SellerAllOrderScreenState extends State<SellerAllOrderScreen> {
         backgroundColor: AppColor().colorRed,
         actions: [
           IconButton(
-            icon: Icon(Icons.search , color: Colors.white,),
+            icon: Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
             onPressed: () {
               showModalBottomSheet(
                 context: context,
@@ -100,7 +114,8 @@ class _SellerAllOrderScreenState extends State<SellerAllOrderScreen> {
                       children: [
                         Text(
                           'Search Orders',
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 16.0),
                         DropdownButton<String>(
@@ -110,7 +125,8 @@ class _SellerAllOrderScreenState extends State<SellerAllOrderScreen> {
                               _selectedStatus = newValue!;
                             });
                           },
-                          items: _statusOptions.map<DropdownMenuItem<String>>((String value) {
+                          items: _statusOptions
+                              .map<DropdownMenuItem<String>>((String value) {
                             return DropdownMenuItem<String>(
                               value: value,
                               child: Text(value),
@@ -141,7 +157,8 @@ class _SellerAllOrderScreenState extends State<SellerAllOrderScreen> {
         color: AppColor().backgroundColor,
         child: FutureBuilder(
           future: _ordersFuture,
-          builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          builder:
+              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.hasError) {
               print('Snapshot error: ${snapshot.error}');
               return Container(
@@ -215,20 +232,26 @@ class _SellerAllOrderScreenState extends State<SellerAllOrderScreen> {
                                               .doc(data.id)
                                               .update({'status': 'accepted'});
                                           // Show a success message
-                                          ScaffoldMessenger.of(context).showSnackBar(
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
                                             SnackBar(
                                               content: Text('Order accepted '),
                                             ),
                                           );
                                           // Reload the orders after updating the status
                                           setState(() {
-                                            _ordersFuture = _fetchOrders(status: _selectedStatus, sellerId: FirebaseAuth.instance.currentUser?.email);
+                                            _ordersFuture = _fetchOrders(
+                                                status: _selectedStatus,
+                                                sellerId: FirebaseAuth.instance
+                                                    .currentUser?.email);
                                           });
                                         } catch (e) {
                                           // Show an error message if updating the status fails
-                                          ScaffoldMessenger.of(context).showSnackBar(
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
                                             SnackBar(
-                                              content: Text('Failed to accept order: $e'),
+                                              content: Text(
+                                                  'Failed to accept order: $e'),
                                             ),
                                           );
                                         }
@@ -237,8 +260,7 @@ class _SellerAllOrderScreenState extends State<SellerAllOrderScreen> {
                                     ),
                                     ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                        backgroundColor:  Colors.orange,
-                                        
+                                        backgroundColor: Colors.orange,
                                       ),
                                       onPressed: () async {
                                         // Update the status in the "orders" collection to "accepted"
@@ -248,20 +270,26 @@ class _SellerAllOrderScreenState extends State<SellerAllOrderScreen> {
                                               .doc(data.id)
                                               .update({'status': 'declined'});
                                           // Show a success message
-                                          ScaffoldMessenger.of(context).showSnackBar(
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
                                             SnackBar(
                                               content: Text('Order declined '),
                                             ),
                                           );
                                           // Reload the orders after updating the status
                                           setState(() {
-                                            _ordersFuture = _fetchOrders(status: _selectedStatus, sellerId: FirebaseAuth.instance.currentUser?.email);
+                                            _ordersFuture = _fetchOrders(
+                                                status: _selectedStatus,
+                                                sellerId: FirebaseAuth.instance
+                                                    .currentUser?.email);
                                           });
                                         } catch (e) {
                                           // Show an error message if updating the status fails
-                                          ScaffoldMessenger.of(context).showSnackBar(
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
                                             SnackBar(
-                                              content: Text('Failed to accept order: $e'),
+                                              content: Text(
+                                                  'Failed to accept order: $e'),
                                             ),
                                           );
                                         }
@@ -278,22 +306,30 @@ class _SellerAllOrderScreenState extends State<SellerAllOrderScreen> {
                                           await FirebaseFirestore.instance
                                               .collection('orders')
                                               .doc(data.id)
-                                              .update({'status': 'in progress'});
+                                              .update(
+                                                  {'status': 'in progress'});
                                           // Show a success message
-                                          ScaffoldMessenger.of(context).showSnackBar(
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
                                             SnackBar(
-                                              content: Text('Order in progress'),
+                                              content:
+                                                  Text('Order in progress'),
                                             ),
                                           );
                                           // Reload the orders after updating the status
                                           setState(() {
-                                            _ordersFuture = _fetchOrders(status: _selectedStatus, sellerId: FirebaseAuth.instance.currentUser?.email);
+                                            _ordersFuture = _fetchOrders(
+                                                status: _selectedStatus,
+                                                sellerId: FirebaseAuth.instance
+                                                    .currentUser?.email);
                                           });
                                         } catch (e) {
                                           // Show an error message if updating the status fails
-                                          ScaffoldMessenger.of(context).showSnackBar(
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
                                             SnackBar(
-                                              content: Text('Failed to accept order: $e'),
+                                              content: Text(
+                                                  'Failed to accept order: $e'),
                                             ),
                                           );
                                         }
@@ -315,31 +351,53 @@ class _SellerAllOrderScreenState extends State<SellerAllOrderScreen> {
           },
         ),
       ),
-      bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          canvasColor: AppColor().colorRed,
-        ),
-        child: BottomNavigationBar(
-          currentIndex: 2,
-          onTap: (value) {
-            if (value == 0) {
-              Get.to(SellerHomeScreen());
-            } else if (value == 1) {
-              Get.to(SellerAllProductScreen());
-            } else if (value == 3) {
-              Get.to(AllCategoriesScreen());
-            } else if (value == 4) {
-              Get.to(AdminScreen());
-            }
-          },
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home, color: AppColor().iconColor,),label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.shopping_bag, color: AppColor().iconColor,), label: 'Products'),
-            BottomNavigationBarItem(icon: Icon(Icons.supervisor_account, color: AppColor().iconColor,), label: 'Customers'),
-            BottomNavigationBarItem(icon: Icon(Icons.login, color: AppColor().iconColor,), label: 'Admins'),
-          ],
-        ),
-      ),
+      // bottomNavigationBar: Theme(
+      //   data: Theme.of(context).copyWith(
+      //       //canvasColor: AppColor().colorRed,
+      //       ),
+      //   child: BottomNavigationBar(
+      //     currentIndex: 2,
+      //     selectedItemColor: AppColor().colorGreen,
+      //     unselectedItemColor: Colors.grey,
+      //     onTap: (value) {
+      //       if (value == 0) {
+      //         Get.to(SellerHomeScreen());
+      //       } else if (value == 1) {
+      //         Get.to(SellerAllProductScreen());
+      //       } else if (value == 3) {
+      //         Get.to(AllCategoriesScreen());
+      //       } else if (value == 4) {
+      //         Get.to(AdminScreen());
+      //       }
+      //     },
+      //     items: [
+      //       BottomNavigationBarItem(
+      //           icon: Icon(
+      //             Icons.home,
+      //            // color: AppColor().iconColor,
+      //           ),
+      //           label: 'Home'),
+      //       BottomNavigationBarItem(
+      //           icon: Icon(
+      //             Icons.shopping_bag,
+      //             //color: AppColor().iconColor,
+      //           ),
+      //           label: 'Products'),
+      //       BottomNavigationBarItem(
+      //           icon: Icon(
+      //             Icons.supervisor_account,
+      //             //color: AppColor().iconColor,
+      //           ),
+      //           label: 'Customers'),
+      //       BottomNavigationBarItem(
+      //           icon: Icon(
+      //             Icons.login,
+      //             //color: AppColor().iconColor,
+      //           ),
+      //           label: 'Admins'),
+      //     ],
+      //   ),
+    //  ),
     );
   }
 }

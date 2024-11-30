@@ -858,7 +858,7 @@ class _SellerEditProductScreenState extends State<SellerEditProductScreen> {
           ),
           bottomNavigationBar: Theme(
             data: Theme.of(context).copyWith(
-              canvasColor: AppColor().colorRed,
+              //canvasColor: AppColor().colorRed,
               primaryColor: Colors.red,
               textTheme: Theme.of(context).textTheme.copyWith(
                     bodySmall: TextStyle(color: Colors.yellow),
@@ -866,7 +866,7 @@ class _SellerEditProductScreenState extends State<SellerEditProductScreen> {
             ),
             child: BottomNavigationBar(
               currentIndex: 0,
-              selectedItemColor: Colors.red,
+              selectedItemColor: AppColor().colorGreen,
               unselectedItemColor: Colors.grey,
               items: const [
                 BottomNavigationBarItem(

@@ -412,7 +412,7 @@ class _SellerAddProductScreenState extends State<SellerAddProductScreen> {
       ),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: AppColor().colorRed,
+          //canvasColor: AppColor().colorRed,
           primaryColor: Colors.red,
           textTheme: Theme.of(context)
               .textTheme

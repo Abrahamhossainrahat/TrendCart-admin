@@ -5,6 +5,7 @@ class AppColor{
   Color colorGreen = const Color.fromARGB(255, 76, 175, 80);
   Color iconColor = const Color.fromARGB(255, 255, 255, 255);
   Color backgroundColor = const Color.fromARGB(255, 248, 246, 242);
+  Color colorWhite = const Color.fromARGB(255, 255, 255, 255);
 
   static const Gradient linerGradient = LinearGradient(
     colors: [

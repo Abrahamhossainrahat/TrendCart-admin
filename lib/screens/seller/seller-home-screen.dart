@@ -141,14 +141,14 @@ class _SellerHomeScreenState extends State<SellerHomeScreen> {
       ),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: AppColor().colorRed,
+          //canvasColor: AppColor().colorRed,
           textTheme: Theme.of(context).textTheme.copyWith(
             bodySmall: TextStyle(color: Colors.yellow),
           ),
         ),
         child: BottomNavigationBar(
           currentIndex: 0,
-          selectedItemColor: Colors.red,
+          selectedItemColor: AppColor().colorGreen,
           unselectedItemColor: Colors.grey,
           items: const [
             BottomNavigationBarItem(

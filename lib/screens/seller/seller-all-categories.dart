@@ -170,15 +170,15 @@ class SellerCategoriesScreen extends StatelessWidget {
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
             // sets the background color of the `BottomNavigationBar`
-            canvasColor: AppColor().colorRed,
+            //canvasColor: AppColor().colorRed,
             // sets the active color of the `BottomNavigationBar` if `Brightness` is light
             primaryColor: Colors.red,
             textTheme: Theme.of(context)
                 .textTheme
                 .copyWith(bodySmall: TextStyle(color: Colors.yellow))),
         child: BottomNavigationBar(
-          currentIndex: 0,
-          // selectedItemColor: Colors.red,
+          currentIndex: 2,
+          selectedItemColor: AppColor().colorGreen,
           unselectedItemColor: Colors.grey,
           items: const [
             BottomNavigationBarItem(
