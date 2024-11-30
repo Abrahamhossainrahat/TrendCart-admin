@@ -191,10 +191,10 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
               icon: Icon(Icons.category),
               label: 'Categories',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              label: 'Profile',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.account_circle),
+            //   label: 'Profile',
+            // ),
           ],
           onTap: (index) {
             switch (index) {

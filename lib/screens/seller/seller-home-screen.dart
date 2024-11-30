@@ -263,7 +263,7 @@ class _SellerHomeScreenState extends State<SellerHomeScreen> {
         );
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: Colors.yellow,
         minimumSize: Size(150, 100),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
@@ -272,7 +272,7 @@ class _SellerHomeScreenState extends State<SellerHomeScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 50),
+          Icon(icon, size: 50, color: AppColor().colorRed,),
           SizedBox(height: 10),
           Text(
             title,

@@ -229,7 +229,7 @@ class _AdminScreenState extends State<AdminScreen> {
         );
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: Colors.yellow,
         minimumSize: Size(150, 100),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
@@ -238,7 +238,7 @@ class _AdminScreenState extends State<AdminScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 50),  // color: AppColor().colorRed,
+          Icon(icon, size: 50,color: AppColor().colorRed,),  // color: AppColor().colorRed,
           SizedBox(height: 10),
           Text(
             title,
