@@ -208,7 +208,7 @@ class _SellerAllOrderScreenState extends State<SellerAllOrderScreen> {
                             children: [
                               Text('Phone: ${data['customerPhone']}'),
                               Text('Address: ${data['customerAddress']}'),
-                              Text('Total Price: ${data['totalPrice']} RM'),
+                              Text('Total Price: ${data['totalPrice']} TK'),
                               Text('Delivery Time: ${data['deliveryTime']}'),
                               Text('Status: ${data['status']}'),
                             ],

@@ -69,7 +69,7 @@ class SellerOrderItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Quantity: ${item.quantity}'),
-                      Text('Price: ${item.price} RM'),
+                      Text('Price: ${item.price} TK'),
                     ],
                   ),
                 ),
