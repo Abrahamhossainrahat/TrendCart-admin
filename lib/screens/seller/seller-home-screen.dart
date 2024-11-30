@@ -277,7 +277,7 @@ class _SellerHomeScreenState extends State<SellerHomeScreen> {
           Text(
             title,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(fontSize: 18,),
           ),
         ],
       ),
