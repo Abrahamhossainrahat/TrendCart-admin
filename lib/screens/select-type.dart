@@ -44,20 +44,20 @@ class SelectTypeScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                // ElevatedButton(
-                //   onPressed: () {
-                //     Get.offAll(LoginScreen());
-                //   },
-                //   child: Text(
-                //     'Seller',
-                //     style: TextStyle(color: Colors.white),
-                //   ),
-                //   style: ElevatedButton.styleFrom(
-                //     backgroundColor: AppColor().colorRed,
-                //     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                //     textStyle: TextStyle(fontSize: 20),
-                //   ),
-                // ),
+                ElevatedButton(
+                  onPressed: () {
+                    Get.offAll(LoginScreen());
+                  },
+                  child: Text(
+                    'Seller',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColor().colorRed,
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                    textStyle: TextStyle(fontSize: 20),
+                  ),
+                ),
               ],
             ),
           ),
